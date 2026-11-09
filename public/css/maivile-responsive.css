@@ -1,0 +1,88 @@
+/* Maivile - Tahap 14: penyempurnaan responsif HP.
+   Dimuat paling akhir. SEMUA aturan ada di dalam @media (max-width), jadi tampilan desktop tidak berubah. */
+
+/* ===== Tablet dan HP (di bawah 992px) ===== */
+@media (max-width: 991.98px) {
+  .mv-sidebar { --bs-offcanvas-width: min(290px, 86vw); }
+  body { overflow-x: clip; }
+  .mv-main { overflow-x: clip; }
+  img, svg, video { max-width: 100%; height: auto; }
+}
+
+/* ===== HP besar dan tablet kecil (di bawah 768px) ===== */
+@media (max-width: 767.98px) {
+  /* Target sentuh minimal 44px */
+  .btn, .btn-sm, .form-control, .form-select, .nav-link, .page-link, .dropdown-item, .accordion-button { min-height: 44px; }
+  .btn-sm { padding-inline: .9rem; }
+  .btn-icon { width: 44px; }
+  .form-check-input { width: 1.3em; height: 1.3em; }
+  .form-check-label { padding-top: .15rem; }
+
+  /* Font isian minimal 16px agar iOS tidak memperbesar layar otomatis */
+  .form-control, .form-select, textarea.form-control, input[type="search"], input[type="date"] { font-size: 16px; }
+
+  /* Header ringkas; judul panjang dipotong, tidak mendorong layar */
+  .mv-header { padding: .6rem .85rem; gap: .6rem; }
+  .mv-header h1 { font-size: 1.05rem; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Teks panjang (email, kode, nama berkas) tidak melebarkan halaman */
+  td, dd, .alert, .card-body { overflow-wrap: anywhere; }
+
+  /* Form pencarian dan filter: kolom cari selebar layar, filter dua per baris */
+  form[role="search"] { width: 100%; }
+  form[role="search"] > input[type="search"] { flex: 1 1 100%; max-width: none !important; }
+  form[role="search"] > .form-control,
+  form[role="search"] > .form-select { flex: 1 1 calc(50% - .25rem); max-width: none !important; min-width: 0; }
+
+  /* Modal muat di layar kecil */
+  .modal-dialog { margin: .75rem auto; max-width: calc(100vw - 1.5rem); }
+  .modal-footer { flex-wrap: wrap; }
+  .modal-footer > .btn { flex: 1 1 auto; }
+
+  /* Pagination boleh turun baris */
+  .pagination { flex-wrap: wrap; justify-content: center; gap: .25rem 0; }
+
+  /* Kartu halaman login dan daftar */
+  .mv-auth { padding: .75rem; }
+  .mv-auth-card { padding: 1.5rem 1.25rem; }
+
+  /* ----- Tabel menjadi kartu per baris (hanya tabel bertanda class mv-cards) ----- */
+  .table-responsive > .table.mv-cards { min-width: 0 !important; width: 100%; --bs-table-hover-bg: transparent; }
+  .table.mv-cards thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .table.mv-cards,
+  .table.mv-cards > tbody,
+  .table.mv-cards > tbody > tr { display: block; width: 100%; }
+  .table.mv-cards > tbody > tr {
+    background: var(--mv-card); border: 1px solid var(--mv-border); border-radius: .75rem;
+    padding: .6rem .95rem; margin-bottom: .75rem;
+  }
+  .table.mv-cards > tbody > tr:hover { background: var(--mv-card-hover); }
+  .table.mv-cards > tbody > tr > td {
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    width: 100%; min-width: 0 !important; padding: .45rem 0 !important; border: 0 !important;
+    text-align: right; white-space: normal !important; box-shadow: none;
+  }
+  .table.mv-cards > tbody > tr > td::before {
+    content: attr(data-label); flex: 0 0 36%; text-align: left;
+    color: var(--mv-muted); font-size: .78rem; font-weight: 600;
+  }
+  /* Kolom pertama (nama dokumen / kode) menjadi judul kartu */
+  .table.mv-cards > tbody > tr > td:first-child {
+    display: block; text-align: left; font-size: 1rem; padding-bottom: .55rem !important;
+    border-bottom: 1px solid var(--mv-border) !important; margin-bottom: .25rem;
+  }
+  .table.mv-cards > tbody > tr > td:first-child::before { display: none; }
+  /* Kolom aksi: tombol di bawah kartu, tanpa label */
+  .table.mv-cards > tbody > tr > td.text-end {
+    justify-content: flex-start; flex-wrap: wrap; gap: .5rem; padding-top: .7rem !important;
+    margin-top: .35rem; border-top: 1px solid var(--mv-border) !important; white-space: normal !important;
+  }
+  .table.mv-cards > tbody > tr > td.text-end::before { display: none; }
+}
+
+/* ===== HP kecil (di bawah 576px) ===== */
+@media (max-width: 575.98px) {
+  main.p-3 { padding: .85rem !important; }
+  .card-body.p-3 { padding: .9rem !important; }
+  .table.mv-cards > tbody > tr > td::before { flex-basis: 40%; }
+}

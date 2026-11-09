@@ -1,0 +1,26 @@
+/* Maivile: penyesuaian tampilan HP (layar < 768px). Tidak mengubah tampilan desktop. */
+@media (max-width: 767.98px) {
+  /* Tabel: jangan pecah per kata; biarkan tabel melebar lalu digeser ke samping. */
+  .table-responsive > .table th,
+  .table-responsive > .table td { white-space: nowrap; }
+  .table-responsive > .table td:first-child { white-space: normal; min-width: 11rem; }
+  .table-responsive > .table td .btn,
+  .table-responsive > .table td .badge { white-space: nowrap; }
+
+  /* Form pencarian/filter: seluruh lebar layar, kolom isian tidak mengecil. */
+  form[role="search"] { width: 100%; }
+  form[role="search"] > .form-control,
+  form[role="search"] > .form-select {
+    max-width: none !important;
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  form[role="search"] > .form-select { flex: 1 1 calc(50% - .25rem); }
+  form[role="search"] > .btn { flex: 1 1 auto; }
+
+  /* Tombol aksi di atas tabel (mis. Tambah Dokumen) selebar layar. */
+  .card-body > .d-flex.flex-wrap > .btn.btn-primary { width: 100%; }
+
+  /* Ruang isi halaman sedikit lebih rapat. */
+  main.p-3 { padding: .75rem !important; }
+}

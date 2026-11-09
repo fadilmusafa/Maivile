@@ -1,0 +1,82 @@
+/* Maivile - halaman pembuka (Tahap 13). Hanya dimuat oleh layouts/landing.blade.php. */
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.mv-lp-nav { background: rgba(0,0,0,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--mv-border); z-index: 1030; }
+.mv-lp-nav .navbar { --bs-navbar-color: var(--mv-muted); --bs-navbar-hover-color: #fff; padding-top: .6rem; padding-bottom: .6rem; }
+.mv-lp-nav .nav-link { font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+.mv-lp-nav .navbar-toggler { border-color: var(--mv-border); min-width: 44px; min-height: 44px; }
+
+.mv-lp-hero { padding: 4rem 0 4.5rem; overflow-x: clip; }
+body { overflow-x: clip; }
+.mv-lp-title { font-size: clamp(2rem, 5.2vw, 3.4rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; margin-bottom: 1.1rem; }
+.mv-lp-lead { font-size: 1.1rem; color: var(--mv-muted); max-width: 34rem; margin-bottom: 1.75rem; }
+
+/* Tumpukan kartu dokumen (hanya CSS) */
+.mv-lp-stack { position: relative; max-width: 440px; margin-inline: auto; padding: 1rem 0 5.5rem; }
+.mv-lp-doc { --c: var(--mv-green); display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem;
+  border-radius: 1rem; background: var(--c); color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.45); position: relative; }
+.mv-lp-doc > i { font-size: 1.8rem; }
+.mv-lp-doc .small { opacity: .9; }
+.mv-lp-chip { margin-left: auto; background: rgba(0,0,0,.35); border-radius: 999px; padding: .25rem .7rem; font-size: .78rem; font-weight: 700; white-space: nowrap; }
+.mv-lp-doc-1 { transform: rotate(-2.5deg); z-index: 3; }
+.mv-lp-doc-2 { transform: translate(1.5rem, -.4rem) rotate(1.5deg); margin-top: -.2rem; z-index: 2; }
+.mv-lp-doc-3 { transform: translate(-.5rem, -.8rem) rotate(-1deg); z-index: 1; }
+.mv-lp-doc-1, .mv-lp-doc-2, .mv-lp-doc-3 { margin-bottom: 1rem; }
+
+.mv-lp-section { padding: 4rem 0; }
+.mv-lp-alt { background: #0c0c0c; border-block: 1px solid var(--mv-border); }
+.mv-lp-narrow { max-width: 820px; }
+.mv-lp-h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .5rem; }
+.mv-lp-sub { color: var(--mv-muted); margin-bottom: 2rem; }
+
+.mv-lp-feature { --c: var(--mv-green); background: var(--mv-card); border: 1px solid var(--mv-border); border-radius: .9rem; padding: 1.4rem; transition: background-color .15s ease; }
+.mv-lp-feature:hover { background: var(--mv-card-hover); }
+.mv-lp-feature h3, .mv-lp-step h3 { font-size: 1.1rem; font-weight: 700; margin: 1rem 0 .4rem; }
+.mv-lp-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: .7rem; background: var(--c); color: #fff; font-size: 1.4rem; }
+
+.mv-lp-step { background: var(--mv-card); border: 1px solid var(--mv-border); border-radius: .9rem; padding: 1.4rem; }
+.mv-lp-step-no { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: var(--mv-green); color: #000; font-weight: 800; }
+.mv-lp-step h3 { margin-top: .9rem; }
+
+.mv-lp-faq-group { font-size: 1rem; font-weight: 700; color: var(--mv-muted); margin: 1.75rem 0 .5rem; }
+.mv-lp-accordion { --bs-accordion-bg: transparent; --bs-accordion-border-color: var(--mv-border); --bs-accordion-color: #fff;
+  --bs-accordion-btn-color: #fff; --bs-accordion-btn-bg: transparent; --bs-accordion-active-color: #fff; --bs-accordion-active-bg: var(--mv-card);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 .2rem rgba(29,185,84,.25); }
+.mv-lp-accordion .accordion-header { margin: 0; font-size: 1rem; }
+.mv-lp-accordion .accordion-button { font-weight: 600; min-height: 56px; box-shadow: none; }
+.mv-lp-accordion .accordion-button:not(.collapsed) { box-shadow: none; }
+
+.mv-lp-footer { background: #000; border-top: 1px solid var(--mv-border); padding: 3rem 0 2rem; }
+.mv-lp-footer a { color: var(--mv-muted); text-decoration: none; display: inline-block; padding: .35rem 0; min-height: 32px; }
+.mv-lp-footer a:hover { color: #fff; }
+
+@media (max-width: 575.98px) {
+  .mv-lp-hero { padding: 2.5rem 0 3rem; }
+  .mv-lp-section { padding: 3rem 0; }
+  .mv-lp-doc { padding: .9rem 1rem; gap: .75rem; }
+  .mv-lp-doc-2 { transform: translate(.6rem, -.4rem) rotate(1.5deg); }
+  .mv-lp-chip { font-size: .72rem; }
+}
+
+/* ===== Tahap 16: penyempurnaan halaman pembuka (hanya tambahan) ===== */
+.mv-lp-hero { background: radial-gradient(60rem 28rem at 85% -10%, rgba(29,185,84,.16), transparent 60%),
+  radial-gradient(40rem 24rem at 0% 110%, rgba(139,92,246,.12), transparent 60%); }
+.mv-lp-pill { display: inline-flex; align-items: center; gap: .45rem; padding: .35rem .85rem; margin-bottom: 1.1rem;
+  border: 1px solid var(--mv-border); border-radius: 999px; background: var(--mv-card); color: var(--mv-muted); font-size: .85rem; font-weight: 600; }
+.mv-lp-pill i { color: var(--mv-green); }
+
+.mv-lp-facts { padding: 2rem 0; background: #0c0c0c; border-block: 1px solid var(--mv-border); }
+.mv-lp-fact-num { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; color: var(--mv-green); }
+
+.mv-lp-cta { padding: 4.5rem 0; background: radial-gradient(50rem 20rem at 50% 120%, rgba(29,185,84,.18), transparent 65%); border-top: 1px solid var(--mv-border); }
+.mv-lp-cta .mv-lp-sub { max-width: 36rem; margin-inline: auto; }
+
+.mv-lp-feature { transition: background-color .15s ease, transform .15s ease; }
+.mv-lp-feature:hover { transform: translateY(-3px); }
+@media (prefers-reduced-motion: reduce) { .mv-lp-feature, .mv-lp-feature:hover { transition: none; transform: none; } }
+
+@media (max-width: 575.98px) {
+  .mv-lp-cta { padding: 3rem 0; }
+  .mv-lp-cta .btn { width: 100%; }
+}

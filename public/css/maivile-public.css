@@ -1,0 +1,36 @@
+/* Maivile - Tahap 17: gaya bersama halaman publik (pembuka, Masuk, Daftar). Hanya tambahan. */
+
+/* Animasi logo: kilau hijau pelan melintasi teks. Mati bila perangkat meminta animasi dikurangi. */
+.mv-logo-anim {
+  background: linear-gradient(100deg, #fff 0%, #fff 40%, var(--mv-green) 50%, #fff 60%, #fff 100%);
+  background-size: 250% 100%; background-position: 100% 0;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+  animation: mv-logo-shine 4.5s ease-in-out infinite;
+}
+.mv-logo-anim:hover { color: transparent; }
+@keyframes mv-logo-shine { 0%, 55% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .mv-logo-anim { animation: none; background: none; -webkit-text-fill-color: #fff; color: #fff; }
+}
+
+/* FAQ: tiap pertanyaan jadi kotak rapi */
+.mv-lp-accordion.accordion-flush > .accordion-item {
+  background: var(--mv-card); border: 1px solid var(--mv-border) !important; border-radius: .75rem !important;
+  margin-bottom: .6rem; overflow: hidden;
+}
+.mv-lp-accordion.accordion-flush > .accordion-item:last-child { margin-bottom: 0; }
+.mv-lp-accordion .accordion-button { padding: 1rem 1.15rem; }
+.mv-lp-accordion .accordion-body { padding: 0 1.15rem 1.1rem; }
+
+/* Masuk dan Daftar: teks di kiri, formulir di kanan (desktop), satu kolom di HP */
+.mv-auth-page { min-height: 100vh; display: flex; flex-direction: column; }
+.mv-auth-page .mv-auth { flex: 1; min-height: 0; }
+.mv-auth-split { width: 100%; max-width: 1060px; display: grid; grid-template-columns: 1fr; justify-items: center; gap: 3rem; }
+.mv-auth-page .mv-auth-card { margin-inline: auto; }
+.mv-auth-headline { font-size: clamp(1.9rem, 3.4vw, 2.7rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; margin-bottom: 1rem; }
+.mv-auth-points li { --c: var(--mv-green); display: flex; align-items: center; gap: .75rem; padding: .35rem 0; font-weight: 600; }
+.mv-auth-points li i { width: 36px; height: 36px; display: grid; place-items: center; border-radius: .6rem; background: var(--c); color: #fff; }
+@media (min-width: 992px) {
+  .mv-auth-split { grid-template-columns: 1fr 410px; justify-items: stretch; align-items: center; }
+  .mv-auth-page .mv-auth-card { margin-inline: 0; }
+}

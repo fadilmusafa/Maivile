@@ -1,0 +1,134 @@
+/* Maivile - dark UI (referensi visual: Spotify). Dimuat setelah Bootstrap 5.3 */
+:root, [data-bs-theme="dark"] {
+  --mv-bg: #121212;
+  --mv-sidebar: #000000;
+  --mv-card: #181818;
+  --mv-card-hover: #282828;
+  --mv-border: #303030;
+  --mv-text: #ffffff;
+  --mv-muted: #b3b3b3;
+  --mv-disabled: #6a6a6a;
+  --mv-green: #1db954;
+  --mv-purple: #8b5cf6;
+  --mv-orange: #f59e0b;
+  --mv-blue: #3b82f6;
+  --mv-pink: #ec4899;
+
+  --bs-body-bg: var(--mv-bg);
+  --bs-body-color: var(--mv-text);
+  --bs-body-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --bs-border-color: var(--mv-border);
+  --bs-secondary-color: var(--mv-muted);
+  --bs-secondary-rgb: 179, 179, 179;
+  --bs-link-color-rgb: 30, 215, 96;
+  --bs-link-hover-color-rgb: 255, 255, 255;
+}
+
+body { background: var(--mv-bg); color: var(--mv-text); }
+.text-secondary, .text-body-secondary { color: var(--mv-muted) !important; }
+:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* Logo */
+.mv-logo { font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -.02em; text-decoration: none; }
+.mv-logo:hover { color: #fff; }
+
+/* Sidebar */
+.mv-sidebar { --bs-offcanvas-bg: var(--mv-sidebar); --bs-offcanvas-width: 270px; --bs-offcanvas-color: #fff;
+  background: var(--mv-sidebar); border-right: 1px solid var(--mv-border); }
+@media (min-width: 992px) {
+  .mv-sidebar { width: 260px; flex-shrink: 0; position: sticky; top: 0; height: 100vh; }
+}
+.mv-nav { list-style: none; padding: 0; margin: 0; display: grid; gap: .25rem; }
+.mv-nav a { display: flex; align-items: center; gap: .75rem; padding: .7rem .9rem; border-radius: .5rem;
+  color: var(--mv-muted); text-decoration: none; font-weight: 600; min-height: 44px; }
+.mv-nav a:hover { background: var(--mv-card); color: #fff; }
+.mv-nav a.active { background: var(--mv-card-hover); color: #fff; }
+.mv-nav a i { font-size: 1.15rem; }
+
+/* Header & konten */
+.mv-main { min-width: 0; }
+.mv-header { position: sticky; top: 0; z-index: 1020; display: flex; align-items: center; gap: 1rem;
+  padding: .75rem 1.25rem; background: rgba(18,18,18,.94); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--mv-border); }
+.mv-header h1 { font-size: 1.25rem; font-weight: 700; margin: 0; }
+
+/* Kartu */
+.card, .mv-card { background: var(--mv-card); border: 1px solid var(--mv-border); border-radius: .75rem;
+  --bs-card-bg: var(--mv-card); --bs-card-border-color: var(--mv-border); --bs-card-cap-bg: transparent; }
+.mv-card-hover { transition: background-color .15s ease; }
+.mv-card-hover:hover { background: var(--mv-card-hover); }
+.mv-stat .mv-stat-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: .6rem;
+  background: rgba(255,255,255,.06); font-size: 1.3rem; }
+.mv-stat .mv-stat-value { font-size: 2rem; font-weight: 800; line-height: 1.1; }
+
+/* Form */
+.form-control, .form-select { background-color: #242424; border-color: #3a3a3a; color: #fff; min-height: 44px; }
+.form-control::placeholder { color: #8a8a8a; }
+.form-control:focus, .form-select:focus { background-color: #242424; color: #fff; border-color: var(--mv-green);
+  box-shadow: 0 0 0 .2rem rgba(29,185,84,.25); }
+.form-control:disabled, .form-control[readonly] { background-color: #1b1b1b; color: #8a8a8a; }
+.form-label { font-weight: 600; font-size: .9rem; }
+
+/* Tombol */
+.btn { min-height: 40px; }
+.btn-primary { --bs-btn-color: #000; --bs-btn-bg: #1db954; --bs-btn-border-color: #1db954;
+  --bs-btn-hover-color: #000; --bs-btn-hover-bg: #1ed760; --bs-btn-hover-border-color: #1ed760;
+  --bs-btn-active-color: #000; --bs-btn-active-bg: #169c46; --bs-btn-active-border-color: #169c46;
+  --bs-btn-disabled-color: #000; --bs-btn-disabled-bg: #1db954; --bs-btn-disabled-border-color: #1db954;
+  font-weight: 700; }
+
+/* Tabel */
+.table { --bs-table-bg: transparent; --bs-table-color: #fff; --bs-table-border-color: var(--mv-border);
+  --bs-table-hover-bg: var(--mv-card-hover); --bs-table-hover-color: #fff; }
+.table thead th { color: var(--mv-muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+
+/* Halaman login */
+.mv-auth { min-height: 100vh; display: grid; place-items: center; padding: 1rem; }
+.mv-auth-card { width: 100%; max-width: 410px; background: var(--mv-card); border: 1px solid var(--mv-border);
+  border-radius: 1rem; padding: 2rem; }
+
+/* Halaman error */
+.mv-error { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 1rem; }
+.mv-error .mv-error-code { font-size: 5rem; font-weight: 800; line-height: 1; color: var(--mv-green); }
+
+/* ===== Tahap 4 ===== */
+.nav-pills { --bs-nav-pills-link-active-bg: var(--mv-green); --bs-nav-pills-link-active-color: #000; --bs-nav-link-color: var(--mv-muted); --bs-nav-link-hover-color: #fff; }
+.nav-pills .nav-link { font-weight: 600; min-height: 40px; }
+.nav-pills .nav-link.active .badge { background-color: rgba(0,0,0,.25) !important; color: #000 !important; }
+
+.pagination { --bs-pagination-bg: var(--mv-card); --bs-pagination-color: #fff; --bs-pagination-border-color: var(--mv-border);
+  --bs-pagination-hover-bg: var(--mv-card-hover); --bs-pagination-hover-color: #fff; --bs-pagination-hover-border-color: var(--mv-border);
+  --bs-pagination-focus-bg: var(--mv-card-hover); --bs-pagination-focus-color: #fff;
+  --bs-pagination-active-bg: var(--mv-green); --bs-pagination-active-border-color: var(--mv-green); --bs-pagination-active-color: #000;
+  --bs-pagination-disabled-bg: var(--mv-card); --bs-pagination-disabled-color: var(--mv-disabled); --bs-pagination-disabled-border-color: var(--mv-border); }
+
+.modal { --bs-modal-bg: var(--mv-card); --bs-modal-border-color: var(--mv-border); --bs-modal-color: #fff; }
+.dropdown-menu { --bs-dropdown-bg: var(--mv-card); --bs-dropdown-border-color: var(--mv-border); --bs-dropdown-link-hover-bg: var(--mv-card-hover); }
+
+.btn-icon { width: 38px; padding: 0; display: inline-grid; place-items: center; }
+.mv-service-accent { width: 6px; border-radius: 6px 0 0 6px; }
+.mv-dl dt { color: var(--mv-muted); font-weight: 500; font-size: .85rem; }
+.mv-dl dd { margin-bottom: 1rem; }
+.mv-secret { background: #000; border: 1px dashed var(--mv-green); border-radius: .5rem; padding: .5rem .9rem; font-size: 1.25rem; letter-spacing: .05em; }
+
+/* ===== Tahap 6 ===== */
+.mv-service-card { transition: filter .15s ease; }
+a.mv-service-card:hover { filter: brightness(1.08); color: inherit; }
+.mv-service-total { font-size: 2.6rem; font-weight: 800; line-height: 1.1; margin-top: .75rem; }
+
+.mv-bars { display: flex; align-items: flex-end; gap: .5rem; height: 190px; }
+.mv-bar-col { flex: 1; min-width: 0; height: 100%; display: flex; flex-direction: column; align-items: center; gap: .25rem; }
+.mv-bar-track { flex: 1; width: 100%; display: flex; align-items: flex-end; justify-content: center; }
+.mv-bar { width: 70%; max-width: 38px; background: var(--mv-green); border-radius: .35rem .35rem 0 0; }
+.mv-bar-value { font-weight: 700; font-size: .85rem; }
+.mv-bar-label { color: var(--mv-muted); font-size: .72rem; white-space: nowrap; }
+
+.mv-bell { width: 42px; padding: 0; display: inline-grid; place-items: center; }
+.mv-bell-menu { width: min(340px, 92vw); max-height: 70vh; overflow-y: auto; }
+.mv-notif-item { display: block; width: 100%; text-align: left; background: transparent; border: 0; color: #fff;
+  padding: .7rem 1rem; border-bottom: 1px solid var(--mv-border); border-left: 3px solid transparent; }
+.mv-notif-item:hover { background: var(--mv-card-hover); }
+.mv-notif-item.unread { border-left-color: var(--mv-green); background: rgba(29,185,84,.07); }
+.mv-notif-item.unread:hover { background: var(--mv-card-hover); }
+.mv-notif-row { padding: 1rem 1.25rem; }
+.mv-notif-list form:last-child .mv-notif-item { border-bottom: 0; }

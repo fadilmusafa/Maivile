@@ -17,6 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'password.changed' => \App\Http\Middleware\EnsurePasswordChanged::class,
         ]);
 
+        // Railway terminates TLS at its proxy; trust X-Forwarded-* so URLs are https
+        $middleware->trustProxies(at: '*');
+
         // Pengguna yang sudah login dan membuka /login diarahkan ke "/"
         $middleware->redirectUsersTo('/');
     })
